@@ -1,0 +1,14 @@
+session = daq.createSession('ni')
+ 
+%State which channels you want to use
+session.addAnalogOutputChannel('cDAQ1Mod1',0,'Voltage');
+session.addAnalogOutputChannel('cDAQ1Mod1',1,'Voltage');
+session.addAnalogOutputChannel('cDAQ1Mod1',2,'Voltage');
+session.addAnalogOutputChannel('cDAQ1Mod1',3,'Voltage');
+
+session
+session.Rate = 1;
+session.queueOutputData([4.5, 0.5, 0.5, 4.5]);
+session.startBackground
+
+% session.stop() % add this when i have finished
